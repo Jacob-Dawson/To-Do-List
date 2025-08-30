@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/base.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <title>To Do List</title>
+    </head>
+    <body>
+        <main>
+            <div id="placeholder">
+                <div id="title">
+                    <p contenteditable="true">List Title</p>
+                </div>
+                <div id="listContent">
+                    <div class="listItem level-one" id="listTest" draggable="true">
+                        <!-- wrap these below in an item class div-->
+                        <div class="dragElem">
+                            <i class="fa-solid fa-grip-vertical"></i>
+                        </div>
+                        <input type="checkbox"/>
+                        <div class="listText">
+                            <p contenteditable="true">This</p>
+                            <button class="xButton">x</button>
+                        </div>
+                        <!-- -->
+                    </div>
+                    <div class="listItem level-two" draggable="true">
+                        <div class="dragElem">
+                            <i class="fa-solid fa-grip-vertical"></i>
+                        </div>
+                        <input type="checkbox" />
+                        <div class="listText">
+                            <p contenteditable="true">is a</p>
+                            <button class="xButton">x</button>
+                        </div>
+                    </div>
+                    <div class="listItem level-three" draggable="true">
+                        <div class="dragElem">
+                            <i class="fa-solid fa-grip-vertical"></i>
+                        </div>
+                        <input type="checkbox" />
+                        <div class="listText">
+                            <p contenteditable="true">list</p>
+                            <button class="xButton">x</button>
+                        </div>
+                    </div>
+                </div>
+                <div id="addListItem">
+                    <p><span>+</span>List Item</p>
+                </div>
+            </div>
+        </main>
+        <div id="footer">
+            <div id="footerContainer">
+                <div id="profilePic">
+                    <a href="https://www.sololearn.com/Profile/100073"><img id="theImg" src="https://blob.sololearn.com/avatars/4f502f80-c497-49f5-be5b-3ee1f3be0739.jpg"/></a>
+                </div>
+                <div id="sig">
+                    <p><a href="https://www.sololearn.com/Profile/100073">Jay</a> &copy; x/12 (2025). Follow me:&nbsp;</p>
+                </div>
+                <div id="logos">
+                    <a href="https://www.sololearn.com/Profile/100073"><img id="slImg" src="https://blob.sololearn.com/avatars/sololearn.png"/></a>
+                    <a href="https://codepen.io/JDawson"><img id="cpenImg" src="https://res.cloudinary.com/css-tricks/images/w_600,h_600,c_fill/f_auto,q_auto/v1637703540/Button-White-Large/Button-White-Large-png?_i=AA"/></a>
+                    <a href="https://github.com/Jacob-Dawson"><img id="githubImg" src="https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png"/></a>
+                </div>
+            </div>
+        </div>
+        <script src="js/base.js"></script>
+    </body>
+</html>
