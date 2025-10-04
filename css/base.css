@@ -23,7 +23,7 @@ main{
 
     border: 1px solid black;
     width: 300px;
-    height: 300px;
+    height: auto;
     padding-left: 5px;
     box-sizing: border-box;
 
@@ -72,12 +72,16 @@ main{
     justify-content: flex-start;
     flex-direction: row;
     align-items: center;
+    box-sizing: border-box;
 
 }
 
 .listText{
 
     display: inline;
+    border-top: none;
+    border-bottom: none;
+    box-sizing: border-box;
 
 }
 
@@ -85,13 +89,26 @@ main{
 
     margin-left: auto;
     visibility: hidden;
+    background-color: white;
+    border-radius: 50%;
+    border: none;
+    font-size: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 6px;
+    line-height: 0 !important;
+
+}
+
+.xButton:hover{
+
+    background-color: rgb(237, 237, 237);
 
 }
 
 .listItem:hover{
 
-    border-top: 1px solid black;
-    border-bottom: 1px solid black;
     box-sizing: border-box;
 
 }
@@ -102,12 +119,21 @@ main{
     display: flex;
     justify-content: left;
     align-items: center;
+    overflow: hidden;
+    height: 100%;
 
 }
 
 .listText > p {
 
-    flex-grow: 5;
+    flex-grow: 1;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    height: 100%;
+    max-width: 85%;
+    outline: 0;
 
 }
 
@@ -116,25 +142,34 @@ main{
     display: flex;
     align-items: center;
     width: 100%;
+    opacity: 0.75;
+    cursor: pointer;
+    height: 50px;
+
+}
+
+#addListItem:hover{
+
+    opacity: 1;
 
 }
 
 #addListItem > p{
 
-    text-indent: 1rem;
+    text-indent: 0.5rem;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: left;
     font-size: 1rem;
     box-sizing: border-box;
-    border: 1px solid white;
     padding-right: 20px;
+    width: 100%;
+    height: 100%;
 
 }
 
 #addListItem > p:hover{
 
-    border: 1px solid black;
     box-sizing: border-box;
 
 }
@@ -148,6 +183,68 @@ main{
 .dragElem{
 
     cursor: move;
+
+}
+
+#listContentUsed > div{
+
+    text-decoration: line-through;
+    opacity: 0.5;
+
+}
+
+input[type="checkbox"] {
+
+    opacity: 0.5;
+    appearance: none;
+    border: 2px solid black;
+    width: 15px;
+    height: 15px;
+    border-radius: 5px;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    margin: 0px 3px;
+    cursor: pointer;
+
+}
+
+input[type="checkbox"]:hover {
+
+    opacity: 1;
+
+}
+
+input[type="checkbox"]:checked::after{
+
+    content: "";
+    width: 100%;
+    height: 100%;
+    background-color: green;
+
+}
+
+#completedStatus{
+
+    border-top: 2px solid rgb(179, 179, 179);
+    margin: 0px 3px;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    box-sizing: border-box;
+    width: calc(100% - 12px);
+    gap: 5px;
+    opacity: 0.75;
+    cursor: pointer;
+
+}
+
+#completedStatus:hover{
+
+    opacity: 1;
+    user-select: none;
 
 }
 

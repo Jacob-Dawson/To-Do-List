@@ -4,9 +4,14 @@ let listText = document.getElementsByClassName("listText");
 let checkboxElem = document.querySelectorAll("input[type='checkbox']");
 let xButton = document.getElementsByClassName("xButton");
 let listContent = document.getElementById("listContent");
+let listContentUsed = document.getElementById("listContentUsed");
 let dragElem = document.querySelectorAll(".dragElem");
 let listItems = document.getElementsByClassName("listItem");
+let listTextP = document.querySelectorAll(".listText > p");
 let addListItem = document.querySelectorAll("#addListItem > p")[0]
+let completedItemsDiv = document.querySelectorAll("#completedItemsDiv > p")[0]
+let completedStatus = document.getElementById("completedStatus");
+let completedStatusDiv = document.querySelectorAll("#completedStatus > div");
 let itemDragging = null;
 let isDragging = false;
 let startX;
@@ -16,6 +21,7 @@ const levelArr = ["level-one","level-two","level-three"];
 addListItem.addEventListener("click",addItem,false)
 
 setEventListeners();
+checkCompletedItems();
 
 function changeLevel(){
 
@@ -45,15 +51,21 @@ function changeLevel(){
 function setEventListeners(){
 
     listText = document.getElementsByClassName("listText");
+    listTextP = document.querySelectorAll(".listText > p");
     checkboxElem = document.querySelectorAll("input[type='checkbox']");
     dragElem = document.querySelectorAll(".dragElem");
+    completedStatus.addEventListener("click",showCompletedItems,false)
+
+    completedStatusDiv[0].style.display = "block";
+    completedStatusDiv[1].style.display = "none";
+    listContentUsed.style.display = "block";
 
     for(let i=0; i<listText.length; i++){
 
+        listTextP[i].addEventListener("click",selectItem,false)
         listText[i].addEventListener("mouseover",hoverItemOver,false);
         listText[i].addEventListener("mouseout",hoverItemOut,false);
         xButton[i].addEventListener("click",deleteItem,false);
-        
         checkboxElem[i].addEventListener("change",toggleDone,false)
 
     }
@@ -63,6 +75,54 @@ function setEventListeners(){
         dragElem[i].addEventListener("click",changeLevel,false);
 
     }
+
+}
+
+function selectItem(e){
+
+    for(let i=0; i<listText.length; i++){
+
+        listText[i].parentElement.style.borderTop = `none`;
+        listText[i].parentElement.style.borderBottom = `none`;
+
+    }
+
+    let selectedElem = e.currentTarget.parentElement.parentElement;
+    let selectedButton = selectedElem.children[2].children[1];
+
+    selectedElem.style.borderTop = `2px solid rgb(220,220,220)`;
+    selectedElem.style.borderBottom = `2px solid rgb(220,220,220)`;
+
+    selectedButton.style.visibility = "visible";
+
+}
+
+function showCompletedItems(){
+
+    let div1 = completedStatusDiv[0];
+    let div2 = completedStatusDiv[1];
+    checkCompletedItems();
+
+    if(div1.style.display === "block"){
+
+        div1.style.display = "none";
+        div2.style.display = "block";
+        listContentUsed.style.display = "none";
+
+    } else if(div2.style.display === "block"){
+
+        div2.style.display = "none";
+        div1.style.display = "block";
+        listContentUsed.style.display = "block";
+
+    }
+
+}
+
+function checkCompletedItems(){
+
+    let listAmount = listContentUsed.children.length;
+    completedItemsDiv.innerHTML = `${listAmount} Completed item${listAmount > 1 ? 's' : ''}`;
 
 }
 
@@ -85,14 +145,12 @@ function toggleDone(e){
 function hoverItemOver(e){
 
     e.currentTarget.lastElementChild.style.visibility = "visible"
-    //e.currentTarget.firstElementChild.contentEditable = "true";
 
 }
 
 function hoverItemOut(e){
 
     e.currentTarget.lastElementChild.style.visibility = "hidden"
-    //e.currentTarget.firstElementChild.contentEditable = "false";
 
 }
 
@@ -149,6 +207,10 @@ function getNodeIndex(elem){
         - Level 1 Item (class: "level-one")
             - Level 2 Item (class: "level-two")
                 - Level 3 Item (class: "level-three")
+
+
+    Checkbox:
+    <i class="fa-solid fa-square-check"></i>
 
 
 */
