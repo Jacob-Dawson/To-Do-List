@@ -12,6 +12,8 @@ let addListItem = document.querySelectorAll("#addListItem > p")[0]
 let completedItemsDiv = document.querySelectorAll("#completedItemsDiv > p")[0]
 let completedStatus = document.getElementById("completedStatus");
 let completedStatusDiv = document.querySelectorAll("#completedStatus > div");
+let pinIcon = document.getElementById("pinIcon");
+let iconFlag = true;
 let itemDragging = null;
 let isDragging = false;
 let startX;
@@ -55,6 +57,7 @@ function setEventListeners(){
     checkboxElem = document.querySelectorAll("input[type='checkbox']");
     dragElem = document.querySelectorAll(".dragElem");
     completedStatus.addEventListener("click",showCompletedItems,false)
+    pinIcon.addEventListener("click",togglePin,false);
 
     completedStatusDiv[0].style.display = "block";
     completedStatusDiv[1].style.display = "none";
@@ -73,6 +76,22 @@ function setEventListeners(){
     for(let i=0; i<dragElem.length; i++){
 
         dragElem[i].addEventListener("click",changeLevel,false);
+
+    }
+
+}
+
+function togglePin(){
+
+    if(iconFlag === false){
+
+        this.style.color = `rgb(0,0,0)`;
+        iconFlag = true;
+
+    } else if(iconFlag === true){
+
+        this.style.color = `rgb(220,220,220)`;
+        iconFlag = false;
 
     }
 
@@ -196,8 +215,8 @@ function getNodeIndex(elem){
     -   be able to drag items to reposition them in the list (up / down)
     -   change the position / level of each item (3 levels, left to right)✅
     -   when ticked off, whole item goes blank and moved to the bottom, below "+ list item"
-    -   Contenteditable shouldnt expand vertically on pressing enter
-    -   Various UI improvements
+    -   Contenteditable shouldnt expand vertically on pressing enter ✅
+    -   Various UI improvements ✅
 
         https://www.w3schools.com/html/tryit.asp?filename=tryhtml5_draganddrop
         https://www.geeksforgeeks.org/html/create-a-drag-and-drop-sortable-list-using-html-css-javascript/

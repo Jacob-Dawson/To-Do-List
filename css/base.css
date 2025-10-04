@@ -29,11 +29,55 @@ main{
 
 }
 
+/* - Heading */
+
+#heading{
+
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
 #title{
 
+    width: 80%;
     font-size: 1.25rem;
 
 }
+
+#pinIcon{
+
+    width: 20%;
+    font-size: 1.125rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    cursor: pointer;
+
+}
+
+#pinIcon > div {
+
+    border-radius: 50%;
+    box-sizing: border-box;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+
+}
+
+#pinIcon > div:hover{
+
+    background-color: rgb(240,240,240);
+        
+}
+
 
 /* - Levels */
 
