@@ -52,6 +52,7 @@ function changeLevel(){
 
 function setEventListeners(){
 
+    listItems = document.getElementsByClassName("listItem");
     listText = document.getElementsByClassName("listText");
     listTextP = document.querySelectorAll(".listText > p");
     checkboxElem = document.querySelectorAll("input[type='checkbox']");
@@ -66,8 +67,8 @@ function setEventListeners(){
     for(let i=0; i<listText.length; i++){
 
         listTextP[i].addEventListener("click",selectItem,false)
-        listText[i].addEventListener("mouseover",hoverItemOver,false);
-        listText[i].addEventListener("mouseout",hoverItemOut,false);
+        listItems[i].addEventListener("mouseover",hoverItemOver,false);
+        listItems[i].addEventListener("mouseout",hoverItemOut,false);
         xButton[i].addEventListener("click",deleteItem,false);
         checkboxElem[i].addEventListener("change",toggleDone,false)
 
@@ -103,6 +104,7 @@ function selectItem(e){
 
         listText[i].parentElement.style.borderTop = `none`;
         listText[i].parentElement.style.borderBottom = `none`;
+        listText[i].children[1].style.visibility = `hidden`;
 
     }
 
@@ -149,12 +151,12 @@ function toggleDone(e){
 
     if(e.currentTarget.checked === true){
 
-        e.currentTarget.parentElement.style.textDecoration = "line-through";
+        e.currentTarget.parentElement.lastElementChild.firstElementChild.style.textDecoration = "line-through";
         e.currentTarget.parentElement.style.opacity = "0.5";
 
     } else if(e.currentTarget.checked === false){
 
-        e.currentTarget.parentElement.style.textDecoration = "none";
+        e.currentTarget.parentElement.lastElementChild.firstElementChild.style.textDecoration = "none";
         e.currentTarget.parentElement.style.opacity = "1";
 
     }
@@ -163,13 +165,13 @@ function toggleDone(e){
 
 function hoverItemOver(e){
 
-    e.currentTarget.lastElementChild.style.visibility = "visible"
+    e.currentTarget.lastElementChild.lastElementChild.style.visibility = "visible"
 
 }
 
 function hoverItemOut(e){
 
-    e.currentTarget.lastElementChild.style.visibility = "hidden"
+    e.currentTarget.lastElementChild.lastElementChild.style.visibility = "hidden"
 
 }
 

@@ -136,12 +136,13 @@ main{
     background-color: white;
     border-radius: 50%;
     border: none;
-    font-size: 1rem;
+    font-size: 1.125rem;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 10px 6px;
     line-height: 0 !important;
+    font-weight: 500;
 
 }
 
@@ -154,6 +155,7 @@ main{
 .listItem:hover{
 
     box-sizing: border-box;
+    visibility: visible;
 
 }
 
@@ -230,9 +232,14 @@ main{
 
 }
 
-#listContentUsed > div{
+#listContentUsed  p{
 
     text-decoration: line-through;
+
+}
+
+#listContentUsed > div {
+
     opacity: 0.5;
 
 }
